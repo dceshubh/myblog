@@ -1,0 +1,51 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+   <head>
+        <title> {{b.title}} </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+   </head>
+   <body>
+   {% if user.is_authenticated %} 
+   <div class="flex-container">
+        <span> <a href="http://127.0.0.1:8000/blog/addblog/"> <span class="link"> Create a Blog </span></a> </span>
+        <span>Welcome , <b> {{user.username}} </b> <a href="http://127.0.0.1:8000/admin/password_change/">
+        <span class="link"> Change Password </span> </a> 
+        / <a href="http://127.0.0.1:8000/blog/logout/"> 
+        <span class="link"> Log Out </span> </a> </span>
+   </div>
+   {% else %}
+   <div class="flex-container"> 
+        <a href="http://127.0.0.1:8000/blog/signup/"> <input type="button" value="Click Here to Sign Up"></input> </a>
+        <a href="http://127.0.0.1:8000/get_name/"><input type="button" value="Click Here to Log In "></input> </a>
+         </div>
+   {% endif %}
+      <h1 align='center'> {{b.title}} </h1>
+      <h3> <u> Date of Published:</u> {{b.pub_date}} </h3>
+      <div class="blog"> {{b.body}} </div>
+      <div class="other_blog"> <h3 align="center"> <u> Other Blogs </u> </h3> 
+        <ol type='I'>
+          {% for k in blogs_list%}
+          {% if k.pk != b.pk %}
+          <li>
+           <a href="http://127.0.0.1:8000/blog/blogs/{{k.pk}}/"><div class="title_blog"> {{k.title}} </div> </a>
+           <div class="blog_date"> Published Date: {{ k.pub_date|date:"d/M"|upper }} </div><br>
+            <hr>
+          </li>
+          {% endif %}
+          {% endfor %}
+      </ol>
+      </div>
+      <h3 class="clear"> <u> Comments </u> </h3>
+      <p> 
+          
+               {% for c in b.comments_set.all %}
+                   <div class="individual_comment"> 
+                   <img src="{{c.photo.url}}" >
+                   <i class="username_style"> {{c.username}} </i> wrote on <i>{{c.comment_date}} </i>: {{c.text}} </div>
+               
+               {% endfor %}
+          
+      </p>
+    </body>
+ </html>

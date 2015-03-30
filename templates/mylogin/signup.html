@@ -1,0 +1,29 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+   <head>
+        <title> Blogging Website ! Fun Begins Now !!!  </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base3.css' %}">
+   </head>
+   <body>
+        <div class="user">
+            <form action="/blog/check/" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.errors %}
+                 {% for error in field.errors %}
+                <li><strong>{{ error }}</strong></li>
+                {% endfor %}
+                {% endif %}
+                <br> <hr>
+              {% endfor %}
+
+            <input type="submit" value="Submit" />
+            </form>
+         </div>
+         <h1 align='center'> Welcome to My Blogs </h1> 
+         <a href="http://127.0.0.1:8000/blog/blogs/" > <h2 align='center'> My Blogs  </h2> </a> 
+         <a href="http://127.0.0.1:8000/blog/latest/" > <h2 align='center'> My Latest Blogs  </h2> </a>
+   </body>
+</html>

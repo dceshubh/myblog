@@ -1,0 +1,36 @@
+<!doctype html>
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+   <head>
+        <title> Blogging Website ! Fun Begins Now !!!  </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base2.css' %}">
+   </head>
+   <body>
+        <div class="flex-container"> 
+        <a href="http://127.0.0.1:8000/blog/signup/"> <input type="button" value="Sign Up"></input> </a>
+            <a href="http://127.0.0.1:8000/blog/frgpwd/"> <input type="button" value="Forget Password ?"> </input> </a>
+        <a href="http://127.0.0.1:8000/blog/resend/"> <input type="button" value="Resend Confirmation Link"></input> </a>
+        <span>
+            <form action="/get_name/" method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                {%for key,value in form.errors.items%}
+                    <li> {{ key }}:
+                    {% for error in value %}
+                    {{ error }}
+                    {% endfor %}
+                    </li>
+                {% endfor %}
+
+                {% endif %}
+                {{ form }}
+            <input type="hidden" name="next" value="{{next }}">
+            <input type="submit" value="LogIn" />
+            </form>
+         </span>
+         </div>
+         <h1 align='center'> Welcome to My Blogs </h1> 
+         <a href="http://127.0.0.1:8000/blog/blogs/" > <h2 align='center'> My Blogs  </h2> </a> 
+         <a href="http://127.0.0.1:8000/blog/latest/" > <h2 align='center'> My Latest Blogs  </h2> </a>
+   </body>
+</html>

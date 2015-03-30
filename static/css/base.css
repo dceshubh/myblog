@@ -1,0 +1,44 @@
+.title_blog{
+	font-family: verdana;
+	color:white;
+	font-size:130%;
+
+}
+ol{
+	font-size: 140%;
+	color:silver;
+}
+.blog_date{
+	font-size:100%;
+	color:silver;
+}
+body{
+	background-color: black;
+	font-size: 20px;
+	margin:0px;
+	padding:0px;
+}
+.user{
+	text-align: right;
+	background-color: rgb(146, 146, 154);
+	font-size:25px;
+	color:white;
+	margin:5px;
+	margin-top:1px;
+	padding:4px;
+}
+.flex-container{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	color:white;
+	font-size:120%;
+	flex-wrap:wrap;
+	background-color: rgb(50, 9, 9);
+	margin:0px;
+	padding:4px;
+}
+.link{
+	color:white;
+	font-size:100%;
+}

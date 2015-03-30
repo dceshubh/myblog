@@ -1,0 +1,20 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+   <head>
+        <title> Welcome {{user.username}} Create a Blog !!!  </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base4.css' %}">
+   </head>
+   <body>
+   <h1> Welcome <b> {{user.username}} </b> Create a Blog !!! </h1>
+        <div class="user">
+            <form action="/blog/add/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <input type="submit" value="Publish Blog" />
+            </form>
+         </div>
+         <a href="http://127.0.0.1:8000/blog/blogs/" > <h2 align='center'> My Blogs  </h2> </a> 
+         <a href="http://127.0.0.1:8000/blog/latest/" > <h2 align='center'> My Latest Blogs  </h2> </a>
+   </body>
+</html>

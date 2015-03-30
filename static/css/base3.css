@@ -1,0 +1,37 @@
+li{
+	color:black;
+	font-size: 22px;
+}
+ul{
+	color:green;
+	font-size:20px;
+}
+.user{
+	text-align: center;
+	background-color: rgb(146, 146, 154);
+	font-size:35px;
+	color:white;
+	margin:auto;
+	padding:4px;
+}
+a{
+	color:rgb(49, 49, 87);
+}
+.log-in{
+	margin:auto;
+	text-align: center;
+	font-size:20px;
+	//background-color: rgb(146, 146, 154);
+	color:grey;
+}
+.errorlist{
+    display:none;
+}
+input{
+    //display:block;
+    margin:auto;
+    width:15%;
+}
+input[type="submit"]{
+    font-size: 40px;
+}

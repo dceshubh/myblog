@@ -1,0 +1,20 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+   <head>
+        <title> Blogging Website ! Fun Begins Now !!!  </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base5.css' %}">
+   </head>
+   <body>
+   <div class="message"> {{ message }}</div>
+   <hr>
+   <a href="http://127.0.0.1:8000/blog/signup/"> Click Here to SignUp </a>
+   <hr>
+   <a href="http://127.0.0.1:8000/blog/"> Click Here to Log In </a>
+   <hr>
+   <a href="http://127.0.0.1:8000/blog/frgpwd/"> Click Here if you have Forgotten your Password </a>
+   <hr>
+   <a href="http://127.0.0.1:8000/blog/resend/"> Click Here to resend the confirmation Link to your Registered Email Id </a>
+   <hr>
+   </body>
+</html>
